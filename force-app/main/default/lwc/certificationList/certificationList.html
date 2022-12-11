@@ -1,0 +1,125 @@
+<template>
+    <lightning-card title="Platform Developer I" icon-name="standard:lightning_component">
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-table_resizable-cols">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th scope="col">
+                    <div class="slds-truncate" title="Section">Section</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Score">Score(%)</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Weight">Weight</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Questions">Questions</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Correct">Correct</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Incorrect">Incorrect</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Result">Result</div>
+                </th>
+            </tr>
+      </thead>
+      <tbody>
+        <tr class="slds-hint-parent">
+          <td>Developer Fundamentals</td>
+          <td>
+            <lightning-input
+                class="slds-size_1-of-4" 
+                type="number" 
+                name="score1"
+                data-id="score1"
+                max="100"
+                min="0"
+                maxlength="3">
+            </lightning-input>
+          </td>
+          <td><lightning-formatted-number value={section1_weight} format-style="percent"></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={section1_question}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={correct1}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={incorrect1}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={result1} format-style="percent"></lightning-formatted-number></td>
+        </tr>
+        <tr>
+          <td >Process Automation and Logic</td>
+          <td>
+            <lightning-input
+                class="slds-size_1-of-4"
+                type="number" 
+                data-id="score2"
+                name="score2"
+                max="100"
+                min="0"
+                maxlength="3">
+            </lightning-input>
+          </td>
+          <td><lightning-formatted-number value={section2_weight} format-style="percent"></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={section2_question}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={correct2}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={incorrect2}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={result2} format-style="percent"></lightning-formatted-number></td>
+        </tr>
+        <tr>
+          <td>User Interface</td>
+          <td>
+            <lightning-input
+                class="slds-size_1-of-4"
+                data-id="score3"
+                type="number" 
+                name="score3"
+                max="100"
+                min="0"
+                maxlength="3">
+            </lightning-input>
+          </td>
+          <td><lightning-formatted-number value={section3_weight} format-style="percent"></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={section3_question}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={correct3}></lightning-formatted-number></td>
+        <td><lightning-formatted-number value={incorrect3}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={result3} format-style="percent"></lightning-formatted-number></td>
+        </tr>
+        <tr>
+          <td>Testing, Debugging, and Deployment</td>
+          <td>
+            <lightning-input
+                class="slds-size_1-of-4"
+                type="number" 
+                data-id="score4"
+                name="score4"
+                max="100"
+                min="0"
+                maxlength="3">
+            </lightning-input>
+          </td>
+          <td><lightning-formatted-number value={section4_weight} format-style="percent"></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={section4_question}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={correct4}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={incorrect4}></lightning-formatted-number></td>
+          <td><lightning-formatted-number value={result4} format-style="percent"></lightning-formatted-number></td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td></td>
+            <td><lightning-formatted-number value=1 format-style="percent"></lightning-formatted-number></td>
+            <td><lightning-formatted-number value={total_questions}></lightning-formatted-number></td>
+            <td><lightning-formatted-number value={total_correct}></lightning-formatted-number></td>
+            <td><lightning-formatted-number value={total_incorrect}></lightning-formatted-number></td>
+            <td><lightning-formatted-number value={overall} format-style="percent"></lightning-formatted-number></td>
+        </tr>
+      </tbody>
+      </table>
+      <div class="slds-clearfix">
+        <div class="slds-float_right">
+            <div class="slds-p-top_large">
+                <lightning-button variant="brand" label="Calculate" title="Primary action" onclick={handleClick} class="slds-m-right_small "></lightning-button>
+            </div>
+        </div>
+      </div>
+    </lightning-card>
+</template>
