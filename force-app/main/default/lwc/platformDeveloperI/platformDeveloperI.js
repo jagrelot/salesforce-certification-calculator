@@ -3,7 +3,10 @@ import { LightningElement } from 'lwc';
 
 export default class PlaformDeveloperI extends LightningElement {
 
-    columns = ['Section', 'Score(%)', 'Questions', 'Correct', 'Incorrect', 'Result'];    
+    columns = ['Section', 'Score(%)', 'Weight','Questions', 'Correct', 'Incorrect', 'Result'];
+    numberCorrect;
+    numberIncorrect;
+    result;    
 
     cert = {
         id:1,
@@ -36,12 +39,27 @@ export default class PlaformDeveloperI extends LightningElement {
                     weight:.22,
                     questions:13,
 
-                }
-            
+                },
             ]
         }
 
     calculate(){
-       
+
+       const scores = Array.from(this.template.querySelectorAll('.score'));
+       const correctDivs = Array.from(this.template.querySelectorAll('.correct'));
+       const incorrectDivs = Array.from(this.template.querySelectorAll('.incorrect'));
+       const resultDivs = Array.from(this.template.querySelectorAll('.result'));
+
+       scores.forEach((score,index) => {
+            this.numberCorrect = Math.round((score.value * .01) * this.cert.sections[index].questions);
+            correctDivs[index].innerHTML = this.numberCorrect;
+
+            this.numberIncorrect = Math.round(this.cert.sections[index].questions - this.numberCorrect);
+            incorrectDivs[index].innerHTML = this.numberIncorrect;
+
+            this.result = this.numberCorrect / this.cert.total_questions;
+            resultDivs[index].innerHTML = this.result.toLocaleString('pl-PL', { style: 'percent' });
+
+        });
     }
 }

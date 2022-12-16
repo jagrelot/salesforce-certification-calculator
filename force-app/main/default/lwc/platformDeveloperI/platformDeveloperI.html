@@ -23,16 +23,18 @@
                             </lightning-input>
                         </td>
                         <td>
-                            {section.questions}
+                           <lightning-formatted-number format-style="percent" value={section.weight}>
+                           </lightning-formatted-number>
                         </td>
-                        <td class="correct">
-                            
+                        <td>
+                            <lightning-formatted-number value={section.questions}>
+                            </lightning-formatted-number>
+                        </td>
+                        <td class="correct"> 
                         </td>
                         <td class="incorrect">
-                            
                         </td>
-                        <td class="incorrect">
-                            
+                        <td class="result">
                         </td>
                     </tr>
                 </template>
