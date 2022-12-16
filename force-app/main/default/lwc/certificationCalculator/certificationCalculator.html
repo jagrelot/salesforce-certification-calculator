@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title='Salesforce Certification Calculator'>
+    <div class="slds-var-m-around_small">
+        <div class="slds-size_1-of-6 slds-var-m-bottom_small">
+            <lightning-combobox 
+                label="Select Certification"
+                value={selectedCert}
+                options={certifications}
+                onchange={handleSelection}>
+            </lightning-combobox>
+        </div>        
+        <template if:true={showPDIDetail}>
+            <c-platform-developer-i></c-platform-developer-i>
+        </template>
+        <template if:true={showPDIIDetail}>
+            <c-platform-developer-i-i></c-platform-developer-i-i>
+        </template>
+        <template if:true={showADMIDetail}>
+            <c-administrator></c-administrator>
+        </template>
+    </div>
+    </lightning-card>
+</template>
