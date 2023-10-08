@@ -1,0 +1,44 @@
+<template>
+        <table class="slds-var-m-horizontal_medium">
+        <thead>
+            <tr>
+                <template for:each={columns} for:item="col">
+                <th key={col}>
+                    {col}
+                </th>
+                </template>
+            </tr>
+        </thead>
+            <tbody>
+                <template for:each={cert.sections} for:item="section">
+                    <tr key={section.id}>
+                        <td>
+                           <strong>{section.name}</strong>
+                        </td>
+                        <td>
+                            <lightning-input 
+                                class="score" 
+                                type="number" 
+                                value={score}>
+                            </lightning-input>
+                        </td>
+                        <td>
+                           <lightning-formatted-number format-style="percent" value={section.weight}>
+                           </lightning-formatted-number>
+                        </td>
+                        <td>
+                            <lightning-formatted-number value={section.questions}>
+                            </lightning-formatted-number>
+                        </td>
+                        <td class="correct"> 
+                        </td>
+                        <td class="incorrect">
+                        </td>
+                        <td class="result">
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        <lightning-button variant="brand" label="CALCULATE" onclick={calculate}></lightning-button>
+</template>
